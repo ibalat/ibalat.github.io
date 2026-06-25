@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İsmet Balat — Apps</title>
+  <meta name="description" content="Apps built by İsmet Balat: Denizcilik Terimleri Sözlüğü and Pixel Dilemma." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0b0e16;
+      --bg-2: #11151f;
+      --panel: #161b28;
+      --border: #232a3a;
+      --text: #eef1f6;
+      --muted: #8a93a6;
+      --accent: #4FC3F7;
+      --accent-2: #CE93D8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    .header {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 88px 24px 56px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0b0e16;
+      margin: 0 auto 24px;
+    }
+
+    .header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 480px;
+      margin: 0 auto 22px;
+    }
+
+    .social a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .social a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    /* APPS GRID */
+    .apps {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 96px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .app-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .app-card .icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    .app-card .icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .app-card h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .app-card .tagline {
+      font-size: 0.92rem;
+      color: var(--muted);
+      flex-grow: 1;
+    }
+
+    .app-card .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .app-card .tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(79,195,247,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(79,195,247,0.25);
+    }
+
+    .app-card .cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .app-card .cta::after {
+      content: " →";
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 24px 56px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="avatar">İB</div>
+    <h1>İsmet Balat</h1>
+    <p>Mobile apps, built end to end — from the algorithm to the App Store listing.</p>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/ismetbalat/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <main class="apps">
+
+    <a class="app-card" href="/dts/">
+      <div class="icon-wrap"><img src="/dts/icon.png" alt="Denizcilik Terimleri Sözlüğü icon" /></div>
+      <h2>Denizcilik Terimleri Sözlüğü</h2>
+      <p class="tagline">A Turkish–English maritime terms dictionary with a flag &amp; pennant guide and a knot-tying guide. Works fully offline.</p>
+      <div class="tags">
+        <span class="tag">Dictionary</span>
+        <span class="tag">Offline</span>
+        <span class="tag">iOS</span>
+      </div>
+      <span class="cta">View app</span>
+    </a>
+
+    <a class="app-card" href="/pd/">
+      <div class="icon-wrap"><img src="/pd/icon.png" alt="Pixel Dilemma icon" /></div>
+      <h2>Pixel Dilemma</h2>
+      <p class="tagline">A pixel-art strategy game built on the Prisoner's Dilemma. Face off against opponents that are each a real, hand-built algorithm.</p>
+      <div class="tags">
+        <span class="tag">Game</span>
+        <span class="tag">Strategy</span>
+        <span class="tag">iOS</span>
+      </div>
+      <span class="cta">View app</span>
+    </a>
+
+  </main>
+
+  <footer>
+    &copy; 2026 İsmet Balat
+  </footer>
+
+</body>
+</html>

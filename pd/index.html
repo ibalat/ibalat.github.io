@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Dilemma</title>
+  <meta name="description" content="Pixel Dilemma — a Prisoner's Dilemma strategy game. Face off against pixel-art characters, each a real algorithm modeling a classic game theory paradox." />
+  <link rel="icon" href="icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0a1f;
+      --bg-2: #161233;
+      --panel: #1d1840;
+      --text: #ece9ff;
+      --muted: #9b94c4;
+      --cyan: #4FC3F7;
+      --purple: #CE93D8;
+      --gold: #FFD700;
+      --red: #EF5350;
+      --green: #A5D6A7;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .pixel {
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .topnav {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 24px 0;
+    }
+
+    .topnav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .topnav a:hover { color: var(--cyan); }
+
+    /* HERO */
+    .hero {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(206,147,216,0.18), transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(79,195,247,0.18), transparent 45%),
+        linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
+      text-align: center;
+      padding: 64px 24px 76px;
+      border-bottom: 4px solid #2a2456;
+    }
+
+    .app-icon {
+      width: 112px;
+      height: 112px;
+      border-radius: 22px;
+      display: inline-block;
+      margin-bottom: 28px;
+      box-shadow: 0 0 0 4px #2a2456, 0 12px 36px rgba(79,195,247,0.25);
+      image-rendering: pixelated;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.4rem, 5vw, 2.1rem);
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      color: var(--text);
+      text-shadow: 3px 3px 0 rgba(206,147,216,0.35);
+    }
+
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .subtitle strong { color: var(--cyan); }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-block;
+    }
+
+    .badge img {
+      height: 52px;
+    }
+
+    .badge.soon {
+      display: inline-flex;
+      align-items: center;
+      height: 52px;
+      padding: 0 18px;
+      border: 2px dashed #3a3470;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* PREMISE */
+    .premise {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 0;
+      text-align: center;
+    }
+
+    .premise h2 {
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .premise p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* FEATURES */
+    .features {
+      max-width: 960px;
+      margin: 56px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid #2a2456;
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+
+    .card .icon {
+      font-size: 2.1rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* HOW IT WORKS */
+    .how {
+      background: var(--bg-2);
+      border-top: 4px solid #2a2456;
+      border-bottom: 4px solid #2a2456;
+      padding: 56px 24px;
+    }
+
+    .how-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .how h2 {
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .choice-chip {
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .choice-chip.coop {
+      background: rgba(165,214,167,0.12);
+      color: var(--green);
+      border: 1px solid rgba(165,214,167,0.4);
+    }
+
+    .choice-chip.defect {
+      background: rgba(239,83,80,0.12);
+      color: var(--red);
+      border: 1px solid rgba(239,83,80,0.4);
+    }
+
+    .how p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    footer .sep { opacity: 0.3; }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="/">&larr; ibalat.github.io</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="app-icon" src="icon.png" alt="Pixel Dilemma icon" />
+    <h1 class="pixel">PIXEL DILEMMA</h1>
+    <p class="subtitle">A strategy game built on the <strong>Prisoner's Dilemma</strong> — read the algorithm, predict the move, find out if trust really pays off.</p>
+    <div class="badge-row">
+      <span class="badge soon">Coming soon to the App Store</span>
+    </div>
+  </section>
+
+  <!-- PREMISE -->
+  <section class="premise">
+    <h2 class="pixel">THE GAME</h2>
+    <p>Every opponent in Pixel Dilemma is a real, hand-built algorithm modeling a classic game theory paradox or strategy — not a generic "AI." Learn how each one thinks, predict its next move, and outsmart it before it outsmarts you.</p>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="card">
+      <div class="icon">🪞</div>
+      <h3>Beat the Paradox</h3>
+      <p>See the algorithm behind every character and figure out the right move before you commit to it.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>Distinct Strategies</h3>
+      <p>Tit for Tat, Grim Trigger, Pavlov, Extortion, and more — every opponent plays by its own logic.</p>
+    </div>
+    <div class="card">
+      <div class="icon">♾️</div>
+      <h3>Shadow of the Future</h3>
+      <p>An endless-rounds mode where every decision you make echoes forward into the next.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎮</div>
+      <h3>Pixel-Art Presentation</h3>
+      <p>A clean, focused game loop wrapped in a sharp retro pixel-art style.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📈</div>
+      <h3>Growing Roster</h3>
+      <p>New paradoxes and algorithms are added over time — there's always another mind to crack.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎓</div>
+      <h3>No Prior Knowledge Needed</h3>
+      <p>Pixel Dilemma teaches game theory as you play — study, adapt, and beat each algorithm.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="how-inner">
+      <h2 class="pixel">HOW IT WORKS</h2>
+      <div class="choices">
+        <div class="choice-chip coop">COOPERATE</div>
+        <div class="choice-chip defect">DEFECT</div>
+      </div>
+      <p>Each round, you and your opponent choose to cooperate or defect. Your score depends not just on your move, but on theirs too. Will you build trust round after round, or strike first before you get betrayed?</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span class="sep">|</span>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      <span class="sep">|</span>
+      <a href="support.html">Support</a>
+    </p>
+    <p style="margin-top: 16px;">&copy; 2026 Pixel Dilemma &mdash; <a href="https://www.linkedin.com/in/ismetbalat/" target="_blank" rel="noopener">İsmet Balat</a></p>
+  </footer>
+
+</body>
+</html>

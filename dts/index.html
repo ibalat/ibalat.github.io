@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Denizcilik Terimleri Sözlüğü</title>
+  <meta name="description" content="Türkçe-İngilizce denizcilik terimleri sözlüğü. Binlerce terim, sancak ve filama rehberi, düğüm kılavuzu." />
+  <link rel="icon" href="icon.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #0a84ff;
+      --dark-blue: #005ecb;
+      --navy: #0d2137;
+      --text: #1a1a2e;
+      --muted: #5a6a7a;
+      --bg: #f0f4f8;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .topnav {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 24px 0;
+    }
+
+    .topnav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .topnav a:hover { text-decoration: underline; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, #1a4068 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 56px 24px 72px;
+    }
+
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      display: inline-block;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.75;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+    }
+
+    .badge img {
+      height: 52px;
+    }
+
+    /* FEATURES */
+    .features {
+      max-width: 900px;
+      margin: 64px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .card .icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+
+    .card p {
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 56px 24px;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 48px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .stat-item .number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .stat-item .label {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--blue);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    footer .sep { opacity: 0.3; }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="/">&larr; ibalat.github.io</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="app-icon" src="icon.png" alt="Denizcilik Terimleri Sözlüğü ikonu" />
+    <h1>Denizcilik Terimleri Sözlüğü</h1>
+    <p class="subtitle">Türkçe–İngilizce Denizcilik Referansı</p>
+    <a class="badge" href="https://apps.apple.com/app/id6780268997" target="_blank" rel="noopener">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store'dan İndir" />
+    </a>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="card">
+      <div class="icon">📖</div>
+      <h3>Kapsamlı Sözlük</h3>
+      <p>Binlerce Türkçe–İngilizce denizcilik terimi; arama ve filtreleme desteğiyle hızla bulun.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🚩</div>
+      <h3>Sancak &amp; Filama Rehberi</h3>
+      <p>Uluslararası denizcilik sancakları ve filamaları görsel rehberle kolayca tanıyın.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🪢</div>
+      <h3>Düğüm Kılavuzu</h3>
+      <p>En çok kullanılan denizcilik düğümlerini adım adım açıklamalarıyla öğrenin.</p>
+    </div>
+    <div class="card">
+      <div class="icon">✈️</div>
+      <h3>Çevrimdışı Çalışır</h3>
+      <p>İnternet bağlantısı olmadan da tüm içeriğe erişin; denizde veya limanda fark etmez.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⭐</div>
+      <h3>Pro Üyelik</h3>
+      <p>Reklamları kaldırın ve tüm içeriğe sınırsız erişin.</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="number">1000+</div>
+        <div class="label">Denizcilik Terimi</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">40+</div>
+        <div class="label">Sancak &amp; Filama</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">20+</div>
+        <div class="label">Denizcilik Düğümü</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <a href="privacy-policy.html">Gizlilik Politikası</a>
+      <span class="sep">|</span>
+      <a href="terms-and-conditions.html">Kullanım Koşulları</a>
+      <span class="sep">|</span>
+      <a href="support.html">Destek</a>
+    </p>
+    <p style="margin-top: 16px;">&copy; 2026 Denizcilik Terimleri Sözlüğü &mdash; <a href="https://www.linkedin.com/in/ismetbalat/" target="_blank" rel="noopener">İsmet Balat</a></p>
+  </footer>
+
+</body>
+</html>
